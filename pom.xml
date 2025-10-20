@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.1.13.RELEASE</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+    <groupId>com.bjtt.subway</groupId>
+    <artifactId>commission-sys</artifactId>
+    <version>0.0.1</version>
+    <name>bjtt-subway</name>
+    <packaging>pom</packaging>
+    <description>基础配置文件</description>
+
+    <modules>
+        <module>bjtt-subway-gateway</module>
+        <module>bjtt-subway-common</module>
+        <module>com-commission</module>
+    </modules>
+
+    <properties>
+        <project.verion>0.0.1</project.verion>
+        <project.publish.verion>0.1.3</project.publish.verion>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>1.8</java.version>
+        <spring-cloud.version>Greenwich.SR6</spring-cloud.version>
+        <alibaba-cloud.version>2.1.3.RELEASE</alibaba-cloud.version>
+        <mysql.version>8.0.33</mysql.version>
+        <mybatisplus.version>2.1.9</mybatisplus.version>
+        <mybatisplus.spring.boot.version>1.0.5</mybatisplus.spring.boot.version>
+        <dynamic-datasource.version>2.5.7</dynamic-datasource.version>
+        <swagger.version>2.7.0</swagger.version>
+        <fegin-httpclient.verion>3.10.0</fegin-httpclient.verion>
+
+        <fastjson.version>1.2.75</fastjson.version>
+        <knife4j.version>1.9.6</knife4j.version>
+        <druid.version>1.2.20</druid.version>
+        <apache-common.version>3.9</apache-common.version>
+        <apache.httpclient>4.5.6</apache.httpclient>
+        <bjtt.subway.common.version>0.0.1</bjtt.subway.common.version>
+    </properties>
+
+    <dependencies>
+
+
+
+        <!--项目需要无差别引入的依赖-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-aop</artifactId>
+        </dependency>
+        <!--apache-commons工具包-->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>${apache-common.version}</version>
+        </dependency>
+        <!--lombok-->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+            <version>4.5.2</version>
+        </dependency>
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>1.2.17</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <!--swg 依赖-->
+        <!-- https://mvnrepository.com/artifact/io.springfox/springfox-swagger2 -->
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <version>2.9.2</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>io.swagger</groupId>
+                    <artifactId>swagger-models</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/io.swagger/swagger-models -->
+        <dependency>
+            <groupId>io.swagger</groupId>
+            <artifactId>swagger-models</artifactId>
+            <version>1.5.21</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/io.springfox/springfox-bean-validators -->
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-bean-validators</artifactId>
+            <version>2.9.2</version>
+        </dependency>
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+            <version>5.5.8</version>
+        </dependency>
+        <!--redis 操作-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+        </dependency>
+        <!--redis 依赖-->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-pool2</artifactId>
+        </dependency>
+
+        <!-- tencent ocr api -->
+        <dependency>
+            <groupId>cn.xsshome</groupId>
+            <artifactId>taip</artifactId>
+            <version>4.3.2</version>
+        </dependency>
+
+
+        <!-- baidu ocr api -->
+        <dependency>
+            <groupId>com.baidu.aip</groupId>
+            <artifactId>java-sdk</artifactId>
+            <version>4.11.0</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>slf4j-simple</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>commons-net</groupId>
+            <artifactId>commons-net</artifactId>
+            <version>3.6</version>
+        </dependency>
+
+
+
+    </dependencies>
+
+    <dependencyManagement>
+        <dependencies>
+            <!--cloud 官方组件，按需在子项目中引入-->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!--alibaba 官方组件，按需引入-->
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+                <version>${alibaba-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.github.xiaoymin</groupId>
+                <artifactId>knife4j-micro-spring-boot-starter</artifactId>
+                <version>${knife4j.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.xiaoymin</groupId>
+                <artifactId>knife4j-spring-boot-starter</artifactId>
+                <version>${knife4j.version}</version>
+            </dependency>
+            <!-- MySQL Connector连接组件 -->
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql.version}</version>
+            </dependency>
+            <!--使用postgresql时引入-->
+            <dependency>
+                <groupId>org.postgresql</groupId>
+                <artifactId>postgresql</artifactId>
+                <scope>runtime</scope>
+            </dependency>
+
+            <!--Oracle connector连接组件-->
+            <!--SqlServer connector连接组件-->
+            <!--mybatis plus 依赖-->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus</artifactId>
+                <version>${mybatisplus.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatisplus-spring-boot-starter</artifactId>
+                <version>${mybatisplus.spring.boot.version}</version>
+            </dependency>
+            <!--数据库连接池-->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid-spring-boot-starter</artifactId>
+                <version>${druid.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${fastjson.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient -->
+            <dependency>
+                <groupId>org.apache.httpcomponents</groupId>
+                <artifactId>httpclient</artifactId>
+                <version>${apache.httpclient}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+
+    <profiles>
+        <profile>
+            <id>dev</id>
+            <properties>
+                <package.environment>dev</package.environment>
+
+
+
+
+
+                <!--本地环境mail项目相关配置-->
+                <!--mail 项目名称-->
+                <mail.spring.app.name>com-commission</mail.spring.app.name>
+                <!--ipps 项目启动设置的端口-->
+                <mail.server.port>8088</mail.server.port>
+                <!--ipps 注册的nacos地址-->
+                <mail.nacos.address>127.0.0.1:8848</mail.nacos.address>
+                <!--ipps 注册的nacos组-->
+                <mail.nacos.config.group>dev</mail.nacos.config.group>
+                <!--ipps 注册的nacos设置的文件类型-->
+                <mail.nacos.config.file.extension>properties</mail.nacos.config.file.extension>
+                <!--ipps 注册的nacos dataId 前缀-->
+                <mail.nacos.config.prefix>application-common</mail.nacos.config.prefix>
+                <!--ipps 不进行过滤的访问地址-->
+                <mail.excludePathPatterns>/bjtt-subway-mail/api/user/register/,/doc.html</mail.excludePathPatterns>
+                <!--ipps 服务器上日志文件路径-->
+                <ipps.log.path>C:/cache/bjtt-logs/</ipps.log.path>
+            </properties>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+        </profile>
+        <profile>
+            <id>huawei</id>
+            <properties>
+                <package.environment>huawei</package.environment>
+
+                <!--本地环境 ipps项目相关配置-->
+                <!--ipps 项目名称-->
+                <ipps.spring.app.name>com-commission</ipps.spring.app.name>
+                <!--ipps 项目启动设置的端口-->
+                <ipps.server.port>10011</ipps.server.port>
+                <!--ipps 注册的nacos地址-->
+                <ipps.nacos.address>172.16.0.247:8848</ipps.nacos.address>
+                <!--ipps 注册的nacos组-->
+                <ipps.nacos.config.group>dev</ipps.nacos.config.group>
+                <!--ipps 注册的nacos设置的文件类型-->
+                <ipps.nacos.config.file.extension>properties</ipps.nacos.config.file.extension>
+                <!--ipps 注册的nacos dataId 前缀-->
+                <ipps.nacos.config.prefix>application-common</ipps.nacos.config.prefix>
+                <!--ipps 不进行过滤的访问地址-->
+                <ipps.excludePathPatterns>/bjtt-subway-user/api/user/register/,/doc.html</ipps.excludePathPatterns>
+                <!--ipps 服务器上日志文件路径-->
+                <ipps.log.path>/home/ylct/applogs/</ipps.log.path>
+            </properties>
+        </profile>
+        <profile>
+            <id>ali</id>
+            <properties>
+                <package.environment>ali</package.environment>
+
+                <!--本地环境 ipps项目相关配置-->
+                <!--ipps 项目名称-->
+                <ipps.spring.app.name>com-commission</ipps.spring.app.name>
+                <!--ipps 项目启动设置的端口-->
+                <ipps.server.port>10011</ipps.server.port>
+                <!--ipps 注册的nacos地址-->
+                <ipps.nacos.address>8.140.162.24:20048</ipps.nacos.address>
+                <!--ipps 注册的nacos组-->
+                <ipps.nacos.config.group>ali</ipps.nacos.config.group>
+                <!--ipps 注册的nacos设置的文件类型-->
+                <ipps.nacos.config.file.extension>properties</ipps.nacos.config.file.extension>
+                <!--ipps 注册的nacos dataId 前缀-->
+                <ipps.nacos.config.prefix>application-common</ipps.nacos.config.prefix>
+                <!--ipps 不进行过滤的访问地址-->
+                <ipps.excludePathPatterns>/bjtt-subway-user/api/user/register/,/doc.html</ipps.excludePathPatterns>
+                <!--ipps 服务器上日志文件路径-->
+                <ipps.log.path>/home/devuser/logs/subwaylogs/</ipps.log.path>
+            </properties>
+        </profile>
+    </profiles>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>2.4.3</version>
+                <configuration>
+                    <fork>true</fork>
+                    <addResources>true</addResources>
+                    <includeSystemScope>true</includeSystemScope>
+                </configuration>
+            </plugin>
+        </plugins>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <!--使用package.environment值替换配置文件中的@package.environment@-->
+                <filtering>true</filtering>
+                <excludes>
+                    <exclude>bootstrap.properties</exclude>
+                    <exclude>application.properties</exclude>
+                    <exclude>logback-spring.xml</exclude>
+                </excludes>
+            </resource>
+            <resource>
+                <directory>src/main/resources</directory>
+                <!--使用package.environment值替换配置文件中的@package.environment@-->
+                <filtering>true</filtering>
+                <includes>
+                    <include>bootstrap.properties</include>
+                    <include>application.properties</include>
+                    <include>logback-spring.xml</include>
+                </includes>
+            </resource>
+        </resources>
+    </build>
+
+</project>
